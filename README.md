@@ -35,7 +35,7 @@ brew install carthage
 ```
 To download wolmo-reactive-core-ios, add this to your Cartfile:
 ```
-github "Wolox/wolmo-reactive-core-ios" ~> <insert version would like, for example, 1.0.0>
+github "Wolox/wolmo-reactive-core-ios" ~> 1.0.0
 ```
 
 ### Manually
