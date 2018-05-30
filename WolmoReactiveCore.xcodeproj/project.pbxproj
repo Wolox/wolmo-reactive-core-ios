@@ -16,14 +16,12 @@
 		CE7486B720471F7700636D98 /* SignalProducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7486B420471F7700636D98 /* SignalProducerSpec.swift */; };
 		CE7486BD2047293100636D98 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486B92047293000636D98 /* ReactiveCocoa.framework */; };
 		CE7486BE2047293100636D98 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BA2047293000636D98 /* ReactiveSwift.framework */; };
-		CE7486BF2047293100636D98 /* ReactiveMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BB2047293000636D98 /* ReactiveMapKit.framework */; };
 		CE7486C02047293100636D98 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BC2047293000636D98 /* Result.framework */; };
 		CE7486C32047294600636D98 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C12047294600636D98 /* Quick.framework */; };
 		CE7486C42047294600636D98 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C22047294600636D98 /* Nimble.framework */; };
 		CE7486C620472A6B00636D98 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C22047294600636D98 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486C720472A6B00636D98 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C12047294600636D98 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486C820472A6B00636D98 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486B92047293000636D98 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE7486C920472A6B00636D98 /* ReactiveMapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BB2047293000636D98 /* ReactiveMapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486CA20472A6B00636D98 /* ReactiveSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BA2047293000636D98 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486CB20472A6B00636D98 /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BC2047293000636D98 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486CF20472BB400636D98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486CE20472BB400636D98 /* Foundation.framework */; };
@@ -49,7 +47,6 @@
 				CE7486C620472A6B00636D98 /* Nimble.framework in Copy Frameworks */,
 				CE7486C720472A6B00636D98 /* Quick.framework in Copy Frameworks */,
 				CE7486C820472A6B00636D98 /* ReactiveCocoa.framework in Copy Frameworks */,
-				CE7486C920472A6B00636D98 /* ReactiveMapKit.framework in Copy Frameworks */,
 				CE7486CA20472A6B00636D98 /* ReactiveSwift.framework in Copy Frameworks */,
 				CE7486CB20472A6B00636D98 /* Result.framework in Copy Frameworks */,
 			);
@@ -86,7 +83,6 @@
 				CE7486CF20472BB400636D98 /* Foundation.framework in Frameworks */,
 				CE7486BD2047293100636D98 /* ReactiveCocoa.framework in Frameworks */,
 				CE7486BE2047293100636D98 /* ReactiveSwift.framework in Frameworks */,
-				CE7486BF2047293100636D98 /* ReactiveMapKit.framework in Frameworks */,
 				CE7486C02047293100636D98 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
