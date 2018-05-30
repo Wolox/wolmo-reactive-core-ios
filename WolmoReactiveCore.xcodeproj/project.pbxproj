@@ -20,12 +20,12 @@
 		CE7486C02047293100636D98 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BC2047293000636D98 /* Result.framework */; };
 		CE7486C32047294600636D98 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C12047294600636D98 /* Quick.framework */; };
 		CE7486C42047294600636D98 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C22047294600636D98 /* Nimble.framework */; };
-		CE7486C620472A6B00636D98 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE7486C22047294600636D98 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE7486C720472A6B00636D98 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE7486C12047294600636D98 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE7486C820472A6B00636D98 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE7486B92047293000636D98 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE7486C920472A6B00636D98 /* ReactiveMapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE7486BB2047293000636D98 /* ReactiveMapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE7486CA20472A6B00636D98 /* ReactiveSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE7486BA2047293000636D98 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE7486CB20472A6B00636D98 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE7486BC2047293000636D98 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE7486C620472A6B00636D98 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C22047294600636D98 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE7486C720472A6B00636D98 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C12047294600636D98 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE7486C820472A6B00636D98 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486B92047293000636D98 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE7486C920472A6B00636D98 /* ReactiveMapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BB2047293000636D98 /* ReactiveMapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE7486CA20472A6B00636D98 /* ReactiveSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BA2047293000636D98 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE7486CB20472A6B00636D98 /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BC2047293000636D98 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486CF20472BB400636D98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486CE20472BB400636D98 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,19 +40,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CE7486C520472A4900636D98 /* CopyFiles */ = {
+		CE7486C520472A4900636D98 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CE7486C620472A6B00636D98 /* Nimble.framework in CopyFiles */,
-				CE7486C720472A6B00636D98 /* Quick.framework in CopyFiles */,
-				CE7486C820472A6B00636D98 /* ReactiveCocoa.framework in CopyFiles */,
-				CE7486C920472A6B00636D98 /* ReactiveMapKit.framework in CopyFiles */,
-				CE7486CA20472A6B00636D98 /* ReactiveSwift.framework in CopyFiles */,
-				CE7486CB20472A6B00636D98 /* Result.framework in CopyFiles */,
+				CE7486C620472A6B00636D98 /* Nimble.framework in Copy Frameworks */,
+				CE7486C720472A6B00636D98 /* Quick.framework in Copy Frameworks */,
+				CE7486C820472A6B00636D98 /* ReactiveCocoa.framework in Copy Frameworks */,
+				CE7486C920472A6B00636D98 /* ReactiveMapKit.framework in Copy Frameworks */,
+				CE7486CA20472A6B00636D98 /* ReactiveSwift.framework in Copy Frameworks */,
+				CE7486CB20472A6B00636D98 /* Result.framework in Copy Frameworks */,
 			);
+			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -180,6 +181,7 @@
 				CE74867B2046F64100636D98 /* Frameworks */,
 				CE74867C2046F64100636D98 /* Headers */,
 				CE74867D2046F64100636D98 /* Resources */,
+				CE73E6BE20BEFA9600750E41 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -197,7 +199,7 @@
 				CE7486842046F64100636D98 /* Sources */,
 				CE7486852046F64100636D98 /* Frameworks */,
 				CE7486862046F64100636D98 /* Resources */,
-				CE7486C520472A4900636D98 /* CopyFiles */,
+				CE7486C520472A4900636D98 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +266,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE73E6BE20BEFA9600750E41 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ ! -z \"$RUNNING_ON_CI\" ]\nthen\necho \"SwiftLint run script has been disabled\"\nexit 0\nfi\n\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE74867A2046F64100636D98 /* Sources */ = {
