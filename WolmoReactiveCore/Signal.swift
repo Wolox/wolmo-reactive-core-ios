@@ -107,11 +107,11 @@ public extension Signal where Value: ResultProtocol {
     */
     public func filterValues() -> Signal<Value.Value, Error> {
         return filter {
-            if $0.value != nil {
+            if $0.result.value != nil {
                 return true
             }
             return false
-        }.map { $0.value! }
+        }.map { $0.result.value! }
     }
 
     /**
@@ -122,11 +122,11 @@ public extension Signal where Value: ResultProtocol {
      */
     public func filterErrors() -> Signal<Value.Error, Error> {
         return filter {
-            if $0.error != nil {
+            if $0.result.error != nil {
                 return true
             }
             return false
-        }.map { $0.error! }
+        }.map { $0.result.error! }
     }
 
 }

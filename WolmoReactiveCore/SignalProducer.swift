@@ -103,11 +103,11 @@ public extension SignalProducer where Value: ResultProtocol {
      */
     public func filterValues() -> SignalProducer<Value.Value, Error> {
         return filter {
-            if $0.value != nil {
+            if $0.result.value != nil {
                 return true
             }
             return false
-        }.map { $0.value! }
+        }.map { $0.result.value! }
     }
     
     /**
@@ -119,11 +119,11 @@ public extension SignalProducer where Value: ResultProtocol {
      */
     public func filterErrors() -> SignalProducer<Value.Error, Error> {
         return filter {
-            if $0.error != nil {
+            if $0.result.error != nil {
                 return true
             }
             return false
-        }.map { $0.error! }
+        }.map { $0.result.error! }
     }
     
 }
