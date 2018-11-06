@@ -1,11 +1,9 @@
 ## WolMo - Reactive Core iOS
-[![Build Status](https://www.bitrise.io/app/d026a7fe0c9dc2f4.svg?token=9MLbGXfHBhZKaL4KXXmpHQ)](https://www.bitrise.io/app/d026a7fe0c9dc2f4#/builds)
-[![Codestats](http://codestats.wolox.com.ar/organizations/wolox/projects/wolmo-core-ios/badge)](http://codestats.wolox.com.ar/organizations/wolox/projects/wolmo-core-ios/badge)
-[![GitHub release](https://img.shields.io/github/release/Wolox/wolmo-core-ios.svg)](https://github.com/Wolox/wolmo-reactive-core-ios/releases)
+[![Build Status](https://www.bitrise.io/app/0ad84576e94db94f/status.svg?token=FUdFU0dh338YPuOoKi1r5Q&branch=master)
+[![Codestats](http://codestats.wolox.com.ar/organizations/wolox/projects/wolmo-reactive-core-ios/badge)](http://codestats.wolox.com.ar/organizations/wolox/projects/wolmo-reactive-core-ios/badge)
+[![GitHub release](https://img.shields.io/github/release/Wolox/wolmo-reactive-core-ios.svg)](https://github.com/Wolox/wolmo-reactive-core-ios/releases)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg)
-
-### TODO: Change badges links
 
 WolMo - Reactive Core iOS is a framework which provides extensions for easier handling on [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) framework in iOS, commonly used at [Wolox](http://www.wolox.com.ar/).
 
@@ -35,7 +33,7 @@ brew install carthage
 ```
 To download wolmo-reactive-core-ios, add this to your Cartfile:
 ```
-github "Wolox/wolmo-reactive-core-ios" ~> <insert version would like, for example, 1.0.0>
+github "Wolox/wolmo-reactive-core-ios" ~> 1.0.0
 ```
 
 ### Manually
