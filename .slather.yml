@@ -1,5 +1,9 @@
 xcodeproj: ./WolmoReactiveCore.xcodeproj
 scheme: WolmoReactiveCore
 ignore:
+  # AV objects can't be tested.
+  - WolmoReactiveCore/Extensions/AVFoundation/*
+  # Tests
   - WolmoReactiveCoreTests/*
+  # Dependencies
   - Carthage/*

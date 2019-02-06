@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		CE00290F214C3EA90079D853 /* AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00290D214C3EA90079D853 /* AVAsset.swift */; };
+		CE002910214C3EA90079D853 /* AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00290E214C3EA90079D853 /* AVPlayerItem.swift */; };
 		0C1CB55221A725D600ED085D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB55121A725D600ED085D /* Action.swift */; };
 		0C1CB55421A7276600ED085D /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1CB55321A7276600ED085D /* MBProgressHUD.framework */; };
 		CE7486892046F64100636D98 /* WolmoReactiveCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE74867F2046F64100636D98 /* WolmoReactiveCore.framework */; };
@@ -58,6 +61,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE00290D214C3EA90079D853 /* AVAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAsset.swift; sourceTree = "<group>"; };
+		CE00290E214C3EA90079D853 /* AVPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerItem.swift; sourceTree = "<group>"; };
 		0C1CB55121A725D600ED085D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		0C1CB55321A7276600ED085D /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
 		CE74867F2046F64100636D98 /* WolmoReactiveCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WolmoReactiveCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE00290C214C3EA90079D853 /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				CE00290D214C3EA90079D853 /* AVAsset.swift */,
+				CE00290E214C3EA90079D853 /* AVPlayerItem.swift */,
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
 		CE7486752046F64100636D98 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +143,7 @@
 			children = (
 				CE7486AF20471F7000636D98 /* Signal.swift */,
 				CE7486AE20471F7000636D98 /* SignalProducer.swift */,
+				CE00290C214C3EA90079D853 /* AVFoundation */,
 				CE7486822046F64100636D98 /* WolmoReactiveCore.h */,
 				CE7486832046F64100636D98 /* Info.plist */,
 				0C1CB55121A725D600ED085D /* Action.swift */,
@@ -292,7 +307,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE002910214C3EA90079D853 /* AVPlayerItem.swift in Sources */,
 				CE7486B020471F7000636D98 /* SignalProducer.swift in Sources */,
+				CE00290F214C3EA90079D853 /* AVAsset.swift in Sources */,
 				0C1CB55221A725D600ED085D /* Action.swift in Sources */,
 				CE7486B120471F7000636D98 /* Signal.swift in Sources */,
 			);
