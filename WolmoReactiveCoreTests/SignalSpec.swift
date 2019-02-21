@@ -351,6 +351,118 @@ public class SignalSpec: QuickSpec {
             
         }
         
+        describe("#onValue") {
+            
+            context("when sending a value") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let (signal, observer) = Signal<(), NoError>.pipe()
+                    signal.onValue { _ in done() }.observeValues { _ in }
+                    observer.send(value: ())
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onError") {
+            
+            context("when sending an error") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let (signal, observer) = Signal<(), NSError>.pipe()
+                    signal.onError { _ in done() }.observeResult { _ in }
+                    observer.send(error: NSError(domain: "", code: 0, userInfo: [:]))
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onTerminated") {
+            
+            context("when sending an error") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let (signal, observer) = Signal<(), NSError>.pipe()
+                    signal.onTerminated { done() }.observeResult { _ in }
+                    observer.send(error: NSError(domain: "", code: 0, userInfo: [:]))
+                    }
+                }
+                
+            }
+            
+            context("when sending completed") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let (signal, observer) = Signal<(), NSError>.pipe()
+                    signal.onTerminated { done() }.observeResult { _ in }
+                    observer.sendCompleted()
+                    }
+                }
+                
+            }
+            
+            context("when interrupting the signal") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let (signal, observer) = Signal<(), NSError>.pipe()
+                    signal.onTerminated { done() }.observeResult { _ in }
+                    observer.sendInterrupted()
+                    }
+                }
+                
+            }
+            // unlike the producer, disposing a signal doesn't terminate it, so we are not testing that case
+            
+        }
+        
+        describe("#onCompleted") {
+            
+            context("when interrupting the signal") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let (signal, observer) = Signal<(), NSError>.pipe()
+                    signal.onInterrupted { done() }.observeResult { _ in }
+                    observer.sendInterrupted()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onInterrupted") {
+            
+            context("when interrupting ") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let (signal, observer) = Signal<(), NSError>.pipe()
+                    signal.onCompleted { done() }.observeResult { _ in }
+                    observer.sendCompleted()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onDisposed") {
+            
+            context("when disposing the signal") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let (signal, _) = Signal<(), NSError>.pipe()
+                    signal.onDisposed { done() }.observeResult { _ in }?.dispose()
+                    }
+                }
+                
+            }
+            
+        }
+        
     }
     
 }

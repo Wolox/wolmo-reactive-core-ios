@@ -126,3 +126,78 @@ public extension SignalProducer where Value: ResultProtocol {
     }
     
 }
+
+public extension SignalProducer {
+    
+    /**
+     - parameter handler: closure to execute upon value.
+     
+     Inject side effects to be performed upon a value event.
+     */
+    func onValue(_ handler: @escaping (Value) -> Void ) -> SignalProducer {
+        return on(value: handler)
+    }
+    
+    /**
+     - parameter handler: closure to execute upon error.
+     
+     Inject side effects to be performed upon an error event.
+     */
+    func onError(_ handler: @escaping (Error) -> Void ) -> SignalProducer {
+        return on(failed: handler)
+    }
+    
+    /**
+     - parameter handler: closure to execute upon disposing the producer.
+     
+     Inject side effects to be performed upon disposing the producer.
+     */
+    func onDisposed(_ handler: @escaping () -> Void ) -> SignalProducer {
+        return on(disposed: handler)
+    }
+    
+    /**
+     - parameter handler: closure to execute upon completion.
+     
+     Inject side effects to be performed upon a completed event.
+     */
+    func onCompleted(_ handler: @escaping () -> Void ) -> SignalProducer {
+        return on(completed: handler)
+    }
+    
+    /**
+     - parameter handler: closure to execute upon termination.
+     
+     Inject side effects to be performed upon a terminating event (completed, interrupted, error).
+     */
+    func onTerminated(_ handler: @escaping () -> Void ) -> SignalProducer {
+        return on(terminated: handler)
+    }
+    
+    /**
+     - parameter handler: closure to execute after starting the producer.
+     
+     Inject side effects to be performed after starting the producer.
+     */
+    func onStarted(_ handler: @escaping () -> Void ) -> SignalProducer {
+        return on(started: handler)
+    }
+    
+    /**
+     - parameter handler: closure to execute before starting the producer.
+     
+     Inject side effects to be performed before starting the producer.
+     */
+    func onStarting(_ handler: @escaping () -> Void ) -> SignalProducer {
+        return on(starting: handler)
+    }
+    
+    /**
+     - parameter handler: closure to execute upon interruption.
+     
+     Inject side effects to be performed upon an interrupted event.
+     */
+    func onInterrupted(_ handler: @escaping () -> Void ) -> SignalProducer {
+        return on(interrupted: handler)
+    }
+}
