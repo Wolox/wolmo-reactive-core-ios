@@ -1,5 +1,5 @@
 ## WolMo - Reactive Core iOS
-[![Build Status](https://www.bitrise.io/app/0ad84576e94db94f/status.svg?token=FUdFU0dh338YPuOoKi1r5Q&branch=master)
+[![Build Status](https://app.bitrise.io/app/0ad84576e94db94f/status.svg?token=FUdFU0dh338YPuOoKi1r5Q&branch=master)
 [![Codestats](http://codestats.wolox.com.ar/organizations/wolox/projects/wolmo-reactive-core-ios/badge)](http://codestats.wolox.com.ar/organizations/wolox/projects/wolmo-reactive-core-ios/badge)
 [![GitHub release](https://img.shields.io/github/release/Wolox/wolmo-reactive-core-ios.svg)](https://github.com/Wolox/wolmo-reactive-core-ios/releases)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
