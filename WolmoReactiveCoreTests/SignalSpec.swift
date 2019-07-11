@@ -8,8 +8,6 @@
 
 import Quick
 import Nimble
-import Result
-import enum Result.NoError
 import ReactiveSwift
 import WolmoReactiveCore
 
@@ -27,7 +25,7 @@ public class SignalSpec: QuickSpec {
 
                 var signal: Signal<(), NSError>!
                 var observer: Signal<(), NSError>.Observer!
-                var converted: Signal<(), NoError>!
+                var converted: Signal<(), Never>!
 
                 beforeEach {
                     let (_signal, _observer) = Signal<(), NSError>.pipe()
@@ -107,7 +105,7 @@ public class SignalSpec: QuickSpec {
             
             var signal: Signal<(), NSError>!
             var observer: Signal<(), NSError>.Observer!
-            var converted: Signal<Result<(), NSError>, NoError>!
+            var converted: Signal<Result<(), NSError>, Never>!
             
             beforeEach {
                 let (_signal, _observer) = Signal<(), NSError>.pipe()
@@ -159,18 +157,18 @@ public class SignalSpec: QuickSpec {
 
         describe("#filterType") {
 
-            var signal: Signal<MockParentClass, NoError>!
-            var observer: Signal<MockParentClass, NoError>.Observer!
+            var signal: Signal<MockParentClass, Never>!
+            var observer: Signal<MockParentClass, Never>.Observer!
 
             beforeEach {
-                let (_signal, _observer) = Signal<MockParentClass, NoError>.pipe()
+                let (_signal, _observer) = Signal<MockParentClass, Never>.pipe()
                 signal = _signal
                 observer = _observer
             }
 
             context("When the type is 'invalid'") {
 
-                var convertedInvalid: Signal<UIViewController, NoError>!
+                var convertedInvalid: Signal<UIViewController, Never>!
 
                 beforeEach {
                     convertedInvalid = signal.filterType()
@@ -189,7 +187,7 @@ public class SignalSpec: QuickSpec {
 
             context("When the type is 'valid'") {
 
-                var convertedValid: Signal<MockChild1Class, NoError>!
+                var convertedValid: Signal<MockChild1Class, Never>!
 
                 beforeEach {
                     convertedValid = signal.filterType()
@@ -230,12 +228,12 @@ public class SignalSpec: QuickSpec {
 
         describe("#skipNotNil") {
 
-            var signal: Signal<Int?, NoError>!
-            var observer: Signal<Int?, NoError>.Observer!
-            var converted: Signal<Int?, NoError>!
+            var signal: Signal<Int?, Never>!
+            var observer: Signal<Int?, Never>.Observer!
+            var converted: Signal<Int?, Never>!
 
             beforeEach {
-                let (_signal, _observer) = Signal<Int?, NoError>.pipe()
+                let (_signal, _observer) = Signal<Int?, Never>.pipe()
                 signal = _signal
                 observer = _observer
                 converted = signal.skipNotNil()

@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 public extension SignalProducer {
     
@@ -18,7 +17,7 @@ public extension SignalProducer {
 
      - returns: A signal producer with the same value type but with `NoError` as the error type
      */
-    public func dropError() -> SignalProducer<Value, NoError> {
+    public func dropError() -> SignalProducer<Value, Never> {
         return flatMapError { _ in .empty }
     }
 
@@ -60,11 +59,11 @@ public extension SignalProducer {
          
          It may be considered similar to the `events` signal of an `Action` (with only next and failed).
      */
-    public func toResultSignalProducer() -> SignalProducer<Result<Value, Error>, NoError> {
+    public func toResultSignalProducer() -> SignalProducer<Result<Value, Error>, Never> {
         return map { Result<Value, Error>.success($0) }
-            .flatMapError { error -> SignalProducer<Result<Value, Error>, NoError> in
+            .flatMapError { error -> SignalProducer<Result<Value, Error>, Never> in
                 let errorValue = Result<Value, Error>.failure(error)
-                return SignalProducer<Result<Value, Error>, NoError>(value: errorValue)
+                return SignalProducer<Result<Value, Error>, Never>(value: errorValue)
         }
     }
 

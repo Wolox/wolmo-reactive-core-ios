@@ -7,17 +7,17 @@
 //
 
 import ReactiveSwift
-import Result
 
 // Can't extend ResultProtocol to EventProtocol.
 // Now Result-valued signals can de materialized and dematerialized.
 extension Result: EventProtocol {
 
     public var event: Signal<Value, Error>.Event {
-        if let value = value {
+        switch self {
+        case .success(let value):
             return .value(value)
-        } else {
-            return .failed(error!)
+        case .failure(let error):
+            return.failed(error)
         }
     }
 
@@ -32,8 +32,8 @@ public extension Signal {
 
      - returns: A signal with the same value type but with `NoError` as the error type
      */
-    public func dropError() -> Signal<Value, NoError> {
-        return flatMapError { _ in SignalProducer<Value, NoError>.empty }
+    public func dropError() -> Signal<Value, Never> {
+        return flatMapError { _ in SignalProducer<Value, Never>.empty }
     }
 
     /**
@@ -65,11 +65,11 @@ public extension Signal {
 
         It may be considered similar to the `events` signal of an `Action` (with only next and failed).
     */
-    public func toResultSignal() -> Signal<Result<Value, Error>, NoError> {
+    public func toResultSignal() -> Signal<Result<Value, Error>, Never> {
         return map { Result<Value, Error>.success($0) }
-            .flatMapError { error -> SignalProducer<Result<Value, Error>, NoError> in
+            .flatMapError { error -> SignalProducer<Result<Value, Error>, Never> in
                 let errorValue = Result<Value, Error>.failure(error)
-                return SignalProducer<Result<Value, Error>, NoError>(value: errorValue)
+                return SignalProducer<Result<Value, Error>, Never>(value: errorValue)
         }
     }
 

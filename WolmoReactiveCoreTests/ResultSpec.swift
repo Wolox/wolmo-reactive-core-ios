@@ -8,7 +8,6 @@
 
 import Quick
 import Nimble
-import Result
 import ReactiveSwift
 import WolmoReactiveCore
 
@@ -21,7 +20,7 @@ public class ResultSpec: QuickSpec {
             context("When it's a value") {
 
                 it("should return the value as a signal event") {
-                    let result = Result<Int, NSError>(value: 3)
+                    let result = Result<Int, NSError>.success(3)
                     let test = result.event
                     expect(test.value).to(equal(3))
                 }
@@ -32,7 +31,7 @@ public class ResultSpec: QuickSpec {
 
                 it("should return the error as a signal event") {
                     let error = NSError(domain: "MyDomain", code: 2, userInfo: .none)
-                    let result = Result<Int, NSError>(error: error)
+                    let result = Result<Int, NSError>.failure(error)
                     let test = result.event
                     expect(test.error).to(equal(error))
                 }
