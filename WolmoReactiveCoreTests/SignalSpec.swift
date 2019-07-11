@@ -271,12 +271,12 @@ public class SignalSpec: QuickSpec {
         
         describe("#filterValues") {
             
-            var signal: Signal<Result<(), NSError>, NoError>!
-            var observer: Signal<Result<(), NSError>, NoError>.Observer!
-            var converted: Signal<(), NoError>!
+            var signal: Signal<Result<(), NSError>, Never>!
+            var observer: Signal<Result<(), NSError>, Never>.Observer!
+            var converted: Signal<(), Never>!
             
             beforeEach {
-                let (_signal, _observer) = Signal<Result<(), NSError>, NoError>.pipe()
+                let (_signal, _observer) = Signal<Result<(), NSError>, Never>.pipe()
                 signal = _signal
                 observer = _observer
                 converted = signal.filterValues()
@@ -312,12 +312,12 @@ public class SignalSpec: QuickSpec {
         
         describe("#filterErrors") {
             
-            var signal: Signal<Result<(), NSError>, NoError>!
-            var observer: Signal<Result<(), NSError>, NoError>.Observer!
-            var converted: Signal<NSError, NoError>!
+            var signal: Signal<Result<(), NSError>, Never>!
+            var observer: Signal<Result<(), NSError>, Never>.Observer!
+            var converted: Signal<NSError, Never>!
             
             beforeEach {
-                let (_signal, _observer) = Signal<Result<(), NSError>, NoError>.pipe()
+                let (_signal, _observer) = Signal<Result<(), NSError>, Never>.pipe()
                 signal = _signal
                 observer = _observer
                 converted = signal.filterErrors()

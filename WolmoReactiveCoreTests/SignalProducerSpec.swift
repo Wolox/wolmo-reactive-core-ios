@@ -262,7 +262,7 @@ public class SignalProducerSpec: QuickSpec {
             context("When sending a success value") {
                 
                 it("shouldn't send on the value") { waitUntil { done in
-                    let producer = SignalProducer<Result<(), NSError>, NoError> { observer, _ in
+                    let producer = SignalProducer<Result<(), NSError>, Never> { observer, _ in
                         observer.send(value: .success(()))
                         observer.sendCompleted()
                     }
@@ -278,7 +278,7 @@ public class SignalProducerSpec: QuickSpec {
             context("When sending a failure value") {
                 
                 it("should send on the error") { waitUntil { done in
-                    let producer = SignalProducer<Result<(), NSError>, NoError> { observer, _ in
+                    let producer = SignalProducer<Result<(), NSError>, Never> { observer, _ in
                         observer.send(value: .failure(NSError(domain: "", code: 0, userInfo: [:])))
                         observer.sendCompleted()
                     }
