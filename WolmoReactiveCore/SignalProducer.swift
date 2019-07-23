@@ -91,38 +91,38 @@ public extension SignalProducer where Value: OptionalProtocol {
 
 }
 
-public extension SignalProducer where Value: ResultProtocol {
-    
-    /**
-         Transforms a `SignalProducer<ResultProtocol<Value2, Error2>, Error>`
-         to `SignalProducer<Value2, Error>`, ignoring all `Error2` events.
-         
-         It may be considered similar to the `values` signal of an `Action`,
-         but for producers.
-     */
-    public func filterValues() -> SignalProducer<Value.Value, Error> {
-        return filter {
-            if $0.result.value != nil {
-                return true
-            }
-            return false
-        }.map { $0.result.value! }
-    }
-    
-    /**
-         Transforms a `SignalProducer<ResultProtocol<Value2, Error2>, Error>`
-         to `SignalProducer<Error2, Error>`, ignoring all `Value2` events.
-         
-         It may be considered similar to the `errors` signal of an `Action`,
-         but for producers.
-     */
-    public func filterErrors() -> SignalProducer<Value.Error, Error> {
-        return filter {
-            if $0.result.error != nil {
-                return true
-            }
-            return false
-        }.map { $0.result.error! }
-    }
-    
-}
+//public extension SignalProducer where Value: ResultProtocol {
+//    
+//    /**
+//         Transforms a `SignalProducer<ResultProtocol<Value2, Error2>, Error>`
+//         to `SignalProducer<Value2, Error>`, ignoring all `Error2` events.
+//         
+//         It may be considered similar to the `values` signal of an `Action`,
+//         but for producers.
+//     */
+//    public func filterValues() -> SignalProducer<Value.Value, Error> {
+//        return filter {
+//            if $0.result.value != nil {
+//                return true
+//            }
+//            return false
+//        }.map { $0.result.value! }
+//    }
+//    
+//    /**
+//         Transforms a `SignalProducer<ResultProtocol<Value2, Error2>, Error>`
+//         to `SignalProducer<Error2, Error>`, ignoring all `Value2` events.
+//         
+//         It may be considered similar to the `errors` signal of an `Action`,
+//         but for producers.
+//     */
+//    public func filterErrors() -> SignalProducer<Value.Error, Error> {
+//        return filter {
+//            if $0.result.error != nil {
+//                return true
+//            }
+//            return false
+//        }.map { $0.result.error! }
+//    }
+//    
+//}

@@ -97,79 +97,36 @@ public extension Signal where Value: OptionalProtocol {
 
 }
 
-public extension Signal where Value: ResultProtocol {
-
-    /**
-        Transforms a `Signal<ResultProtocol<Value2, Error2>, Error>` to `Signal<Value2, Error>`,
-        ignoring all `Error2` events.
-
-        It may be considered similar to the `values` signal of an `Action`.
-    */
-    public func filterValues() -> Signal<Value.Value, Error> {
-        return filter {
-            if $0.result.value != nil {
-                return true
-            }
-            return false
-        }.map { $0.result.value! }
-    }
-
-    /**
-         Transforms a `Signal<ResultProtocol<Value2, Error2>, Error>` to `Signal<Error2, Error>`,
-         ignoring all `Value2` events.
-
-         It may be considered similar to the `errors` signal of an `Action`.
-     */
-    public func filterErrors() -> Signal<Value.Error, Error> {
-        return filter {
-            if $0.result.error != nil {
-                return true
-            }
-            return false
-        }.map { $0.result.error! }
-    }
-
-}
-
-public protocol ResultProtocol {
-    associatedtype Value
-    associatedtype Error: Swift.Error
-    
-    init(value: Value)
-    init(error: Error)
-    
-    var result: Result<Value, Error> { get }
-}
-
-extension Result: ResultProtocol {
-    
-    /// Constructs a success wrapping a `value`.
-    public init(value: Value) {
-        self = .success(value)
-    }
-    
-    /// Constructs a failure wrapping an `error`.
-    public init(error: Error) {
-        self = .failure(error)
-    }
-    
-    public var result: Result<Value, Error> {
-        return self
-    }
-    
-    /// Returns the value if self represents a success, `nil` otherwise.
-    public var value: Value? {
-        switch self {
-        case let .success(value): return value
-        case .failure: return nil
-        }
-    }
-    
-    /// Returns the error if self represents a failure, `nil` otherwise.
-    public var error: Error? {
-        switch self {
-        case .success: return nil
-        case let .failure(error): return error
-        }
-    }
-}
+//public extension Signal where Value: ResultProtocol {
+//
+//    /**
+//        Transforms a `Signal<ResultProtocol<Value2, Error2>, Error>` to `Signal<Value2, Error>`,
+//        ignoring all `Error2` events.
+//
+//        It may be considered similar to the `values` signal of an `Action`.
+//    */
+//    public func filterValues() -> Signal<Value.Value, Error> {
+//        return filter {
+//            if $0.result.value != nil {
+//                return true
+//            }
+//            return false
+//        }.map { $0.result.value! }
+//    }
+//
+//    /**
+//         Transforms a `Signal<ResultProtocol<Value2, Error2>, Error>` to `Signal<Error2, Error>`,
+//         ignoring all `Value2` events.
+//
+//         It may be considered similar to the `errors` signal of an `Action`.
+//     */
+//    public func filterErrors() -> Signal<Value.Error, Error> {
+//        return filter {
+//            if $0.result.error != nil {
+//                return true
+//            }
+//            return false
+//        }.map { $0.result.error! }
+//    }
+//
+//}

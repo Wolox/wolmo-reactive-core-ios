@@ -2,3 +2,5 @@ github "ReactiveCocoa/ReactiveCocoa" ~> 10.0.0
 
 # ProgressHud
 github "guidomb/MBProgressHUD" "master"
+
+github "antitypical/Result" "5.0.0"
