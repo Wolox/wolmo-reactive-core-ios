@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		CE00290F214C3EA90079D853 /* AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00290D214C3EA90079D853 /* AVAsset.swift */; };
-		CE002910214C3EA90079D853 /* AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00290E214C3EA90079D853 /* AVPlayerItem.swift */; };
 		0C1CB55221A725D600ED085D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CB55121A725D600ED085D /* Action.swift */; };
 		0C1CB55421A7276600ED085D /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1CB55321A7276600ED085D /* MBProgressHUD.framework */; };
+		CE00290F214C3EA90079D853 /* AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00290D214C3EA90079D853 /* AVAsset.swift */; };
+		CE002910214C3EA90079D853 /* AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00290E214C3EA90079D853 /* AVPlayerItem.swift */; };
 		CE7486892046F64100636D98 /* WolmoReactiveCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE74867F2046F64100636D98 /* WolmoReactiveCore.framework */; };
 		CE7486902046F64100636D98 /* WolmoReactiveCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CE7486822046F64100636D98 /* WolmoReactiveCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE7486B020471F7000636D98 /* SignalProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7486AE20471F7000636D98 /* SignalProducer.swift */; };
@@ -21,14 +20,12 @@
 		CE7486B720471F7700636D98 /* SignalProducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7486B420471F7700636D98 /* SignalProducerSpec.swift */; };
 		CE7486BD2047293100636D98 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486B92047293000636D98 /* ReactiveCocoa.framework */; };
 		CE7486BE2047293100636D98 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BA2047293000636D98 /* ReactiveSwift.framework */; };
-		CE7486C02047293100636D98 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BC2047293000636D98 /* Result.framework */; };
 		CE7486C32047294600636D98 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C12047294600636D98 /* Quick.framework */; };
 		CE7486C42047294600636D98 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C22047294600636D98 /* Nimble.framework */; };
 		CE7486C620472A6B00636D98 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C22047294600636D98 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486C720472A6B00636D98 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486C12047294600636D98 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486C820472A6B00636D98 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486B92047293000636D98 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486CA20472A6B00636D98 /* ReactiveSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BA2047293000636D98 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE7486CB20472A6B00636D98 /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486BC2047293000636D98 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE7486CF20472BB400636D98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7486CE20472BB400636D98 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +50,6 @@
 				CE7486C720472A6B00636D98 /* Quick.framework in Copy Frameworks */,
 				CE7486C820472A6B00636D98 /* ReactiveCocoa.framework in Copy Frameworks */,
 				CE7486CA20472A6B00636D98 /* ReactiveSwift.framework in Copy Frameworks */,
-				CE7486CB20472A6B00636D98 /* Result.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,10 +57,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CE00290D214C3EA90079D853 /* AVAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAsset.swift; sourceTree = "<group>"; };
-		CE00290E214C3EA90079D853 /* AVPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerItem.swift; sourceTree = "<group>"; };
 		0C1CB55121A725D600ED085D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		0C1CB55321A7276600ED085D /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		CE00290D214C3EA90079D853 /* AVAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAsset.swift; sourceTree = "<group>"; };
+		CE00290E214C3EA90079D853 /* AVPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerItem.swift; sourceTree = "<group>"; };
 		CE74867F2046F64100636D98 /* WolmoReactiveCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WolmoReactiveCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7486822046F64100636D98 /* WolmoReactiveCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WolmoReactiveCore.h; sourceTree = "<group>"; };
 		CE7486832046F64100636D98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,7 +74,6 @@
 		CE7486B92047293000636D98 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		CE7486BA2047293000636D98 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		CE7486BB2047293000636D98 /* ReactiveMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMapKit.framework; path = Carthage/Build/iOS/ReactiveMapKit.framework; sourceTree = "<group>"; };
-		CE7486BC2047293000636D98 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		CE7486C12047294600636D98 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		CE7486C22047294600636D98 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		CE7486CE20472BB400636D98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,7 +88,6 @@
 				CE7486BD2047293100636D98 /* ReactiveCocoa.framework in Frameworks */,
 				0C1CB55421A7276600ED085D /* MBProgressHUD.framework in Frameworks */,
 				CE7486BE2047293100636D98 /* ReactiveSwift.framework in Frameworks */,
-				CE7486C02047293100636D98 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +166,6 @@
 				CE7486B92047293000636D98 /* ReactiveCocoa.framework */,
 				CE7486BB2047293000636D98 /* ReactiveMapKit.framework */,
 				CE7486BA2047293000636D98 /* ReactiveSwift.framework */,
-				CE7486BC2047293000636D98 /* Result.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -241,11 +234,12 @@
 				TargetAttributes = {
 					CE74867E2046F64100636D98 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					CE7486872046F64100636D98 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -473,7 +467,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -499,7 +493,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wolox.WolmoReactiveCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -518,7 +512,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wolox.WolmoReactiveCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -537,7 +531,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wolox.WolmoReactiveCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
