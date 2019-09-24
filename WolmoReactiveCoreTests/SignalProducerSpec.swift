@@ -110,6 +110,150 @@ public class SignalProducerSpec: QuickSpec {
 
         }
         
+        describe("#onValue") {
+            
+            context("when sending a value") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.send(value: ())
+                    }
+                    producer.onValue { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onStarted") {
+            
+            context("when starting a producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in }
+                    producer.onStarted { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onStarting") {
+            
+            context("when starting a producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in }
+                    producer.onStarting { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onError") {
+            
+            context("when sending an error") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.send(error: NSError(domain: "", code: 0, userInfo: [:]))
+                    }
+                    producer.onError { _ in done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onTerminated") {
+            
+            context("when sending an error") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.send(error: NSError(domain: "", code: 0, userInfo: [:]))
+                    }
+                    producer.onTerminated { done() }.start()
+                    }
+                }
+                
+            }
+            
+            context("when sending completed") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.sendCompleted()
+                    }
+                    producer.onTerminated { done() }.start()
+                    }
+                }
+                
+            }
+            
+            context("when disposing the producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in }
+                    producer.onTerminated { done() }.start().dispose()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onCompleted") {
+            
+            context("when sending completed") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.sendCompleted()
+                    }
+                    producer.onCompleted { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onDisposed") {
+            
+            context("when disposing the producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in }
+                    producer.onDisposed { done() }.start().dispose()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onInterrupted") {
+            
+            context("when interrupting the producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.sendInterrupted()
+                    }
+                    producer.onInterrupted { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
         describe("#toResultSignalProducer") {
 
             context("When sending a value") {
