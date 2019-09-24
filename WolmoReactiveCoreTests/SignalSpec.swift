@@ -356,7 +356,7 @@ public class SignalSpec: QuickSpec {
             context("when sending a value") {
                 
                 it("should perform the given side effects") { waitUntil { done in
-                    let (signal, observer) = Signal<(), NoError>.pipe()
+                    let (signal, observer) = Signal<(), Never>.pipe()
                     signal.onValue { _ in done() }.observeValues { _ in }
                     observer.send(value: ())
                     }
