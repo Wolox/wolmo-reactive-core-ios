@@ -7,17 +7,17 @@
 //
 
 import ReactiveSwift
-import Result
 
 // Can't extend ResultProtocol to EventProtocol.
 // Now Result-valued signals can de materialized and dematerialized.
 extension Result: EventProtocol {
 
     public var event: Signal<Value, Error>.Event {
-        if let value = value {
+        switch self {
+        case .success(let value):
             return .value(value)
-        } else {
-            return .failed(error!)
+        case .failure(let error):
+            return.failed(error)
         }
     }
 
@@ -32,8 +32,8 @@ public extension Signal {
 
      - returns: A signal with the same value type but with `NoError` as the error type
      */
-    public func dropError() -> Signal<Value, NoError> {
-        return flatMapError { _ in SignalProducer<Value, NoError>.empty }
+    public func dropError() -> Signal<Value, Never> {
+        return flatMapError { _ in SignalProducer<Value, Never>.empty }
     }
 
     /**
@@ -65,11 +65,11 @@ public extension Signal {
 
         It may be considered similar to the `events` signal of an `Action` (with only next and failed).
     */
-    public func toResultSignal() -> Signal<Result<Value, Error>, NoError> {
+    public func toResultSignal() -> Signal<Result<Value, Error>, Never> {
         return map { Result<Value, Error>.success($0) }
-            .flatMapError { error -> SignalProducer<Result<Value, Error>, NoError> in
+            .flatMapError { error -> SignalProducer<Result<Value, Error>, Never> in
                 let errorValue = Result<Value, Error>.failure(error)
-                return SignalProducer<Result<Value, Error>, NoError>(value: errorValue)
+                return SignalProducer<Result<Value, Error>, Never>(value: errorValue)
         }
     }
 
@@ -129,4 +129,104 @@ public extension Signal where Value: ResultProtocol {
         }.map { $0.result.error! }
     }
 
+}
+
+public extension Signal {
+
+    /**
+     - parameter handler: closure to execute upon value.
+
+     Inject side effects to be performed upon a value event.
+     */
+    func onValue(_ handler: @escaping (Value) -> Void ) -> Signal {
+        return on(value: handler)
+    }
+
+    /**
+     - parameter handler: closure to execute upon error.
+
+     Inject side effects to be performed upon an error event.
+     */
+    func onError(_ handler: @escaping (Error) -> Void ) -> Signal {
+        return on(failed: handler)
+    }
+
+    /**
+     - parameter handler: closure to execute upon signal disposal.
+
+     Inject side effects to be performed upon disposing the signal.
+     */
+    func onDisposed(_ handler: @escaping () -> Void ) -> Signal {
+        return on(disposed: handler)
+    }
+
+    /**
+     - parameter handler: closure to execute upon Completion.
+
+     Inject side effects to be performed upon a Completed event.
+     */
+    func onCompleted(_ handler: @escaping () -> Void ) -> Signal {
+        return on(completed: handler)
+    }
+
+    /**
+     - parameter handler: closure to execute upon Termination.
+
+     Inject side effects to be performed upon a terminating event (interrupted, completed, error).
+     */
+    func onTerminated(_ handler: @escaping () -> Void ) -> Signal {
+        return on(terminated: handler)
+    }
+
+    /**
+     - parameter handler: closure to execute upon interruption.
+
+     Inject side effects to be performed upon an interrupted event.
+     */
+    func onInterrupted(_ handler: @escaping () -> Void ) -> Signal {
+        return on(interrupted: handler)
+    }
+}
+
+public protocol ResultProtocol {
+    associatedtype Value
+    associatedtype Error: Swift.Error
+
+    init(value: Value)
+    init(error: Error)
+
+    var result: Result<Value, Error> { get }
+}
+
+extension Result: ResultProtocol {
+
+    /// Constructs a success wrapping a `value`.
+    public init(value: Value) {
+        self = .success(value)
+    }
+
+    /// Constructs a failure wrapping an `error`.
+    public init(error: Error) {
+        self = .failure(error)
+    }
+
+    public var result: Result<Value, Error> {
+        return self
+    }
+
+    /// Returns the value if self represents a success, `nil` otherwise.
+    public var value: Value? {
+        switch self {
+        case let .success(value): return value
+        case .failure: return nil
+        }
+    }
+
+    /// Returns the error if self represents a failure, `nil` otherwise.
+    public var error: Error? {
+        switch self {
+        case .success: return nil
+        case let .failure(error): return error
+        }
+    }
 }
