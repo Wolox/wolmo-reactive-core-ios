@@ -8,7 +8,6 @@
 
 import Quick
 import Nimble
-import Result
 import ReactiveSwift
 import WolmoReactiveCore
 
@@ -30,7 +29,7 @@ public class SignalProducerSpec: QuickSpec {
 
                 var producer: SignalProducer<(), NSError>!
                 var property: MutableProperty<String>!
-                var converted: SignalProducer<(), NoError>!
+                var converted: SignalProducer<(), Never>!
 
                 beforeEach {
                     property = MutableProperty("")
@@ -111,6 +110,150 @@ public class SignalProducerSpec: QuickSpec {
 
         }
         
+        describe("#onValue") {
+            
+            context("when sending a value") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.send(value: ())
+                    }
+                    producer.onValue { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onStarted") {
+            
+            context("when starting a producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in }
+                    producer.onStarted { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onStarting") {
+            
+            context("when starting a producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in }
+                    producer.onStarting { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onError") {
+            
+            context("when sending an error") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.send(error: NSError(domain: "", code: 0, userInfo: [:]))
+                    }
+                    producer.onError { _ in done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onTerminated") {
+            
+            context("when sending an error") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.send(error: NSError(domain: "", code: 0, userInfo: [:]))
+                    }
+                    producer.onTerminated { done() }.start()
+                    }
+                }
+                
+            }
+            
+            context("when sending completed") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.sendCompleted()
+                    }
+                    producer.onTerminated { done() }.start()
+                    }
+                }
+                
+            }
+            
+            context("when disposing the producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in }
+                    producer.onTerminated { done() }.start().dispose()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onCompleted") {
+            
+            context("when sending completed") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.sendCompleted()
+                    }
+                    producer.onCompleted { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onDisposed") {
+            
+            context("when disposing the producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in }
+                    producer.onDisposed { done() }.start().dispose()
+                    }
+                }
+                
+            }
+            
+        }
+        
+        describe("#onInterrupted") {
+            
+            context("when interrupting the producer") {
+                
+                it("should perform the given side effects") { waitUntil { done in
+                    let producer = SignalProducer<(), NSError> { observer, _ in
+                        observer.sendInterrupted()
+                    }
+                    producer.onInterrupted { done() }.start()
+                    }
+                }
+                
+            }
+            
+        }
+        
         describe("#toResultSignalProducer") {
 
             context("When sending a value") {
@@ -168,11 +311,11 @@ public class SignalProducerSpec: QuickSpec {
             context("When the type is 'invalid'") {
 
                 it("shouldn't send any value") { waitUntil { done in
-                    let producer = SignalProducer<(), NoError> { observer, _ in
+                    let producer = SignalProducer<(), Never> { observer, _ in
                         observer.send(value: ())
                         observer.sendCompleted()
                     }
-                    let converted: SignalProducer<UIViewController, NoError> = producer.filterType()
+                    let converted: SignalProducer<UIViewController, Never> = producer.filterType()
                     converted.on(completed: { done() },
                                  value: { _ in fail() }).start()
 
@@ -185,12 +328,12 @@ public class SignalProducerSpec: QuickSpec {
                 context("when there are values of that type") {
 
                     it("should send those values") { waitUntil { done in
-                        let producer = SignalProducer<MockParentClass, NoError> { observer, _ in
+                        let producer = SignalProducer<MockParentClass, Never> { observer, _ in
                             observer.send(value: MockChild1Class(name: "1"))
                             observer.send(value: MockChild2Class(name: "2"))
                             observer.sendCompleted()
                         }
-                        let converted: SignalProducer<MockChild1Class, NoError> = producer.filterType()
+                        let converted: SignalProducer<MockChild1Class, Never> = producer.filterType()
                         converted.collect().startWithValues {
                             expect($0.count).to(equal(1))
                             expect($0.first!.name).to(equal("1"))
@@ -203,12 +346,12 @@ public class SignalProducerSpec: QuickSpec {
                 context("when there aren't values of that type") {
 
                     it("shouldn't send any value") { waitUntil { done in
-                        let producer = SignalProducer<MockParentClass, NoError> { observer, _ in
+                        let producer = SignalProducer<MockParentClass, Never> { observer, _ in
                             observer.send(value: MockChild2Class(name: "1"))
                             observer.send(value: MockChild2Class(name: "2"))
                             observer.sendCompleted()
                         }
-                        let converted: SignalProducer<MockChild1Class, NoError> = producer.filterType()
+                        let converted: SignalProducer<MockChild1Class, Never> = producer.filterType()
                         converted.on(completed: { done() },
                                      value: { _ in fail() }).start()
                     }}
@@ -224,7 +367,7 @@ public class SignalProducerSpec: QuickSpec {
             context("when there are non-nil values") {
 
                 it("shouldn't send those values") { waitUntil { done in
-                    let producer = SignalProducer<Int?, NoError> { observer, _ in
+                    let producer = SignalProducer<Int?, Never> { observer, _ in
                         observer.send(value: 3)
                         observer.send(value: .none)
                         observer.sendCompleted()
@@ -241,7 +384,7 @@ public class SignalProducerSpec: QuickSpec {
             context("when there aren't non-nil values") {
 
                 it("should send all values") { waitUntil { done in
-                    let producer = SignalProducer<Int?, NoError> { observer, _ in
+                    let producer = SignalProducer<Int?, Never> { observer, _ in
                         observer.send(value: .none)
                         observer.send(value: .none)
                         observer.sendCompleted()
@@ -257,48 +400,13 @@ public class SignalProducerSpec: QuickSpec {
 
         }
 
-        describe("#filterValues") {
-            
-            context("When sending a success value") {
-                
-                it("should send on the value") { waitUntil { done in
-                    let producer = SignalProducer<Result<(), NSError>, NoError> { observer, _ in
-                        observer.send(value: .success(()))
-                        observer.sendCompleted()
-                    }
-                    let converted = producer.filterValues()
-                    converted.collect().startWithValues {
-                        expect($0.count).to(equal(1))
-                        done()
-                    }
-                }}
-                
-            }
-            
-            context("When sending a failure value") {
-                
-                it("shouldn't send on the error") { waitUntil { done in
-                    let producer = SignalProducer<Result<(), NSError>, NoError> { observer, _ in
-                        observer.send(value: .failure(NSError(domain: "", code: 0, userInfo: [:])))
-                        observer.sendCompleted()
-                    }
-                    let converted = producer.filterValues()
-                    converted.collect().startWithValues {
-                        expect($0.count).to(equal(0))
-                        done()
-                    }
-                }}
-                
-            }
-            
-        }
         
         describe("#filterErrors") {
             
             context("When sending a success value") {
                 
                 it("shouldn't send on the value") { waitUntil { done in
-                    let producer = SignalProducer<Result<(), NSError>, NoError> { observer, _ in
+                    let producer = SignalProducer<Result<(), NSError>, Never> { observer, _ in
                         observer.send(value: .success(()))
                         observer.sendCompleted()
                     }
@@ -314,7 +422,7 @@ public class SignalProducerSpec: QuickSpec {
             context("When sending a failure value") {
                 
                 it("should send on the error") { waitUntil { done in
-                    let producer = SignalProducer<Result<(), NSError>, NoError> { observer, _ in
+                    let producer = SignalProducer<Result<(), NSError>, Never> { observer, _ in
                         observer.send(value: .failure(NSError(domain: "", code: 0, userInfo: [:])))
                         observer.sendCompleted()
                     }
